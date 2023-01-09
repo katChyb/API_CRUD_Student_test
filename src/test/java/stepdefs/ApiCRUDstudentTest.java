@@ -43,6 +43,7 @@ public class ApiCRUDstudentTest {
 
     @Then("new student is created successfully and exist in the system")
     public void GETnewStudentDetails() {
+
         studentResponse =
                 given()
                         .spec(specifications.setupRequestSpecification())
