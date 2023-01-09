@@ -32,7 +32,6 @@ public class PropertiesFactory {
     }
 
     private void setTestDataProperties() {
-        logger.info("<------------------Start setting properties for Test data------------------>");
         testData = yamlReader.getConfig().getTestData();
         Map<String, Object> testDataProperties = testData.getDataProperties();
         for (Map.Entry entry : testDataProperties.entrySet()) {

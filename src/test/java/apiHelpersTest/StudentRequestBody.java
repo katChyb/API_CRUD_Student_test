@@ -12,5 +12,8 @@ public class StudentRequestBody {
     private String first_name;
     private String middle_name;
     private String last_name;
-    private Date date_of_birth;
+    private String date_of_birth;
+
+    public StudentRequestBody(String first_name, String name, String last_name, Date birthday) {
+    }
 }
