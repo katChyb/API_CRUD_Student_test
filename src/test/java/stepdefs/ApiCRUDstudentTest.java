@@ -3,14 +3,19 @@ package stepdefs;
 import apiHelpersTest.ReqResSpecifications;
 import apiHelpersTest.StudentFactory;
 import apiHelpersTest.StudentResponse;
+import com.jayway.jsonpath.JsonPath;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import lombok.SneakyThrows;
 import models.Student;
+import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import static apiHelpers.Endpoints.STUDENT_DETAILS_ENDPOINT;
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class ApiCRUDstudentTest {
 
@@ -41,6 +46,7 @@ public class ApiCRUDstudentTest {
         log.info(">>>>>>>> create new student <<<<<<<<<");
     }
 
+    @SneakyThrows
     @Then("new student is created successfully and exist in the system")
     public void GETnewStudentDetails() {
 
@@ -55,6 +61,14 @@ public class ApiCRUDstudentTest {
                         .statusCode(200)
                         .extract()
                         .as(StudentResponse.class);
+
+
+        Assert.assertEquals(StudentResponse.class.getField("first_name"), System.getProperty("studentFirstName"));
         log.info(">>>>>>>> get information about new student <<<<<<<<<");
+    }
+
+    @When("I update this student and change his last name to middle name")
+    public void iUpdateThisStudentAndChangeHisLastNameToMiddleName() {
+
     }
 }

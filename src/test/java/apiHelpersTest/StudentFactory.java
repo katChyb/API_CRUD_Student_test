@@ -34,8 +34,8 @@ public class StudentFactory {
                 .build();
     }
 
-    public static void changeStudentMiddleName(StudentResponse item) {
+    public static void changeStudentLastName(StudentResponse item) {
         log.info("<------------------ Change Middle Name in given Student Object ------------------>");
-        item.getData().setMiddle_name(usFaker.name().firstName());
+        item.getData().setLast_name(System.getProperty("studentMiddleName"));
     }
 }
